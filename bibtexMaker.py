@@ -6,7 +6,7 @@ from sets import Set
 LATEXCITEREGEX = re.compile("\\cite{([^}]+)}", re.M | re.I | re.S)
 BIBCITEREGEX = re.compile("@[^{]+{([^,]+),", re.M | re.I | re.S)
 CITETEMPLATE = """
-@BOOK{%s,
+@%s{%s,
 AUTHOR="",
 TITLE="",
 YEAR=,
@@ -26,14 +26,14 @@ def getCitesForBibFile(f):
     return cites
 
 
-def createBibtexFile(outfile, cites):
+def createBibtexFile(outfile, cites, citeType):
     fh = open(outfile, "w+")
     for cite in cites:
-        writeCitation(fh, cite)
+        writeCitation(fh, cite, citeType)
     fh.close()
 
-def writeCitation(fh, cite):
-    fh.write(CITETEMPLATE % cite)
+def writeCitation(fh, cite, citeType):
+    fh.write(CITETEMPLATE % (citeType, cite))
 
 if __name__=="__main__":
 
@@ -43,6 +43,7 @@ if __name__=="__main__":
     parser.add_argument('files', metavar="FILE", type=str, nargs="+", help="LaTeX files to parse for citations")
     parser.add_argument('-o', '--outfile', dest="outfile", type=str, default="bibtex.bib", help="output file for the bibtex (default: bibtex.bib)")
     parser.add_argument('-b', '--bib', dest="bibs", type=str, default=[], action="append", help="bib files to check for already defined references")
+    parser.add_argument('-t', '--type', dest="citeType", type=str, default="BOOK", help="define the type of citation for the Bibtex file (default: BOOK)")
     args = parser.parse_args()
 
     neededCites = Set()
@@ -52,4 +53,4 @@ if __name__=="__main__":
     for f in args.bibs:
         definedCites.update(getCitesForBibFile(f))
     cites = neededCites - definedCites
-    createBibtexFile(args.outfile, cites)
+    createBibtexFile(args.outfile, cites, args.citeType)
