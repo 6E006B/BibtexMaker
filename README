@@ -1,12 +1,12 @@
-BibtexMaker is supposed to help you creating a BibTex document for an already
-written document. It parses all citations and creates a new BibTex file with
+BibtexMaker is supposed to help you creating a Bibtex document for an already
+written document. It parses all citations and creates a new Bibtex file with
 all the referenced citations. Then you have to fill out all the elements in the
 resulting document and should be ready to use it in your LaTeX document.
 
 $ ./bibtexMaker.py -h
-usage: bibtexMaker.py [-h] [-o OUTFILE] FILE [FILE ...]
+usage: bibtexMaker.py [-h] [-o OUTFILE] [-b BIBS] FILE [FILE ...]
 
-create a prefilled bibtex file from latex documents
+create a prefilled Bibtex file from LaTeX documents
 
 positional arguments:
   FILE                  LaTeX files to parse for citations
@@ -14,7 +14,8 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -o OUTFILE, --outfile OUTFILE
-                        output file for the bibtex (default: bibtex.bib)
+                        output file for the Bibtex (default: bibtex.bib)
+  -b BIBS, --bib BIBS   bib files to check for already defined references
 
 
 If you have any problems or suggestions please file a bug or report your
