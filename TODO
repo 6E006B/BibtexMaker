@@ -1,0 +1,2 @@
+- try to guess bibtex file name by \bibliography{$}
+- argument to define default cite type (like BOOK or ARTICLE) (-> then all available fields)
