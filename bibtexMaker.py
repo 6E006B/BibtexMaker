@@ -40,5 +40,4 @@ if __name__=="__main__":
     cites = Set()
     for f in args.files:
         cites.update(getCitesForFile(f))
-    print cites
     createBibtexFile(args.outfile, cites)
