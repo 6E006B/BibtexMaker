@@ -3,7 +3,7 @@
 import re
 from sets import Set
 
-LATEXCITEREGEX = re.compile("\\cite(?:\[[^]]*\])?{([^}]+)}", re.M | re.I | re.S)
+LATEXCITEREGEX = re.compile("\\cite[pt\*]*(?:\[[^]]*\])?{([^}]+)}", re.M | re.I | re.S)
 BIBCITEREGEX = re.compile("@[^{]+{([^,]+),", re.M | re.I | re.S)
 CITETEMPLATE = """
 @%s{%s,
