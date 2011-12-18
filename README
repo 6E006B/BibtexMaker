@@ -4,7 +4,7 @@ all the referenced citations. Then you have to fill out all the elements in the
 resulting document and should be ready to use it in your LaTeX document.
 
 $ ./bibtexMaker.py -h
-usage: bibtexMaker.py [-h] [-o OUTFILE] [-b BIBS] [-t CITETYPE]
+usage: bibtexMaker.py [-h] [-o OUTFILE] [-b BIBS] [-t CITETYPE] [-r]
                       FILE [FILE ...]
 
 create a prefilled bibtex file from latex documents
@@ -20,6 +20,8 @@ optional arguments:
   -t CITETYPE, --type CITETYPE
                         define the type of citation for the Bibtex file
                         (default: BOOK)
+  -r, --replace         replace the outfile if it exists (default: append to
+                        outfile)
 
 
 If you have any problems or suggestions please file a bug or report your
