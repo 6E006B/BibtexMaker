@@ -27,7 +27,7 @@ def getCitesForBibFile(f):
 
 
 def createBibtexFile(outfile, cites, citeType):
-    fh = open(outfile, "w+")
+    fh = open(outfile, "a")
     for cite in cites:
         writeCitation(fh, cite, citeType)
     fh.close()
