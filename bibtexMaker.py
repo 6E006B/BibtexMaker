@@ -9,7 +9,7 @@ CITETEMPLATE = """
 @%s{%s,
 AUTHOR="",
 TITLE="",
-YEAR=,
+YEAR=
 }
 """
 
